@@ -1,1 +1,7 @@
-console.log('This would be the main JS file.');
+$(document).ready(function() {
+
+	$('#demo-floatlabel').floatlabel({
+		labelEndTop: "12px"
+	});
+
+});
