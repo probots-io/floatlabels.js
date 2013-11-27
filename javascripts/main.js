@@ -4,4 +4,6 @@ $(document).ready(function() {
 		labelEndTop: "12px"
 	});
 
+	Socialite.load();
+
 });
