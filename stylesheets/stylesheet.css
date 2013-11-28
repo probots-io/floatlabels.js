@@ -121,6 +121,11 @@ pre[class*="language-"] {
 .clearfix {
   display: block;
 }
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   padding: 0;
@@ -159,14 +164,18 @@ header > .inner h2 {
 header > .inner h2 {
   margin-left: 20px;
 }
+header #hero {
+  position: relative;
+}
 header #hero .inner {
   width: 900px;
   margin: 0 auto;
 }
 header #hero .inner #demo-input {
+  position: relative;
   width: 65%;
   margin: 0 auto;
-  padding: 150px 0;
+  padding: 150px 0 50px 0;
 }
 header #hero .inner #demo-input input {
   border: 5px solid #34495e;
@@ -180,6 +189,54 @@ header #hero .inner #demo-input label {
   font-weight: bold;
   padding-left: 5px;
   color: #22313d;
+}
+header #hero #tagbox {
+  top: 60px;
+  left: 50%;
+  position: absolute;
+  background: #1abc9c;
+  padding: 10px 20px;
+  width: 250px;
+  margin-left: -350px;
+}
+header #hero #tagbox:after {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(136, 183, 213, 0);
+  border-top-color: #1abc9c;
+  border-width: 10px;
+  margin-left: -10px;
+}
+header #hero #tagbox2 {
+  display: none;
+  top: 80px;
+  left: 50%;
+  position: absolute;
+  background: #1abc9c;
+  padding: 10px 20px;
+  width: 250px;
+  margin-left: -150px;
+  z-index: 1000;
+}
+header #hero #tagbox2:after {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(136, 183, 213, 0);
+  border-top-color: #1abc9c;
+  border-width: 10px;
+  margin-left: -10px;
 }
 h1,
 h2,
@@ -198,6 +255,29 @@ h3 {
 }
 h4 {
   margin-bottom: 20px;
+}
+#links {
+  width: 600px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+#links a {
+  padding: 10px 0;
+  display: block;
+  background: #1abc9c;
+  text-align: center;
+  float: left;
+  color: white;
+  font-weight: bold;
+  width: 31.3333%;
+  margin: 0 1%;
+}
+#links a small {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: normal;
+  letter-spacing: 2px;
 }
 #colorlines > div {
   width: 20%;
@@ -219,6 +299,9 @@ h4 {
 #colorlines ._5 {
   background-color: #34495e;
 }
+#social-buttons {
+  text-align: center;
+}
 #social-buttons .vhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -228,6 +311,11 @@ h4 {
   padding: 0;
   position: absolute;
   width: 1px;
+}
+#social-buttons .social-buttons {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
 }
 #social-buttons .social-buttons > li {
   display: block;
