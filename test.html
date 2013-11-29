@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600|Oswald' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="http://clubdesign.github.io/floatlabels.js/stylesheets/stylesheet.css" media="screen" />
+        <meta name="description" content="Follows the famous Float Label Pattern. A Plugin built on jQuery." />
+        <script src="http://clubdesign.github.io/floatlabels.js/javascripts/jquery.js" type="text/javascript"></script>
+        <script src="http://clubdesign.github.io/floatlabels.js/javascripts/socialite.js" type="text/javascript"></script>
+        <script src="http://clubdesign.github.io/floatlabels.js/javascripts/prism.js" type="text/javascript"></script>
+        <script src="floatlabels.js" type="text/javascript"></script>
+        <script src="http://clubdesign.github.io/floatlabels.js/javascripts/main.js" type="text/javascript"></script>
+
+        <meta property="og:title" content="floatlabels.js"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="http://clubdesign.github.io/floatlabels.js/"/>
+        <meta property="og:image" content="http://clubdesign.github.io/floatlabels.js/images/og.png"/>
+        <meta property="og:site_name" content="floatlabels.js"/>
+        <meta property="og:description" content="Follows the famous Float Label Pattern. A Plugin built on jQuery."/>
+
+
+        <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <title>floatlabels.js by Clubdesign</title>
+    </head>
+
+    <body>
+    
+        <header>
+            <div class="inner">
+                <h1>floatlabels<span>.js</span></h1><h2>Follows the famous Float Label Pattern. Built on jQuery.</h2>
+                <!-- <a href="https://github.com/clubdesign/floatlabels.js" class="button"><small>View project on</small>GitHub</a> -->
+            </div>
+
+            <div id="hero">
+                
+               
+
+                <div class="inner">
+                    <div id="demo-input">
+
+                        <div id="tagbox">
+                            Type <strong>anything</strong> into the input textfield to see the floated label in action.
+                        </div>
+
+                        <div id="tagbox2">
+                            <strong>Hooray!</strong> There it is!<br>
+                            Now clear the field again.
+                        </div>
+                        
+                        <input type="text" id="demo-floatlabel" placeholder="Start typing..." data-label="This is a floated Label. It stays there until the field is cleared.">
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="links" class="clearfix">
+                
+                <a href="https://github.com/clubdesign/floatlabels.js/zipball/master">
+                    <small>Download</small>
+                    .zip file
+                </a>
+
+                <a href="https://github.com/clubdesign/floatlabels.js/tarball/master">
+                    <small>Download</small>
+                    .tar.gz file
+                </a>
+
+                <a href="https://github.com/clubdesign/floatlabels.js">
+                    <small>View</small>
+                    on Github
+                </a>
+
+            </div>
+
+        </header>
+
+
+
+        <section id="colorlines" class="clearfix">
+            <div class="_1"></div>
+            <div class="_2"></div>
+            <div class="_3"></div>
+            <div class="_4"></div>
+            <div class="_5"></div>
+        </section>
+
+        <div id="content" class="clearfix">
+    
+            <section id="main-content">
+
+                <h3>Wait. Floated Labels?</h3><br style="clear:both">
+
+                <p>
+                    The Float Label Pattern found his success after <a href="http://bradfrostweb.com/blog/post/float-label-pattern/">Brad Frost</a> wrote a blog post about Float Label Patterns.
+                    The idea is based on a <a href="http://dribbble.com/shots/1254439--GIF-Float-Label-Form-Interaction?list=users" target="_blank">Dribbble Shot by <a href="http://dribbble.com/mds" target="_blank">Matt D Smith</a>.
+                    The Pattern is easy to explain. On User Interaction with an input field the placeholder value moves up, and is displayed above the typed text. This Plugin offers you the possibility to upgrade your forms with this famous pattern.
+                </p>
+
+                <div id="social-buttons" class="clearfix">
+                    
+                    <ul class="social-buttons clearfix">
+                        <li>
+                            <a href="http://twitter.com/share" class="socialite twitter-share" data-text="floatlabels.js" data-url="http://clubdesign.github.io/floatlabels.js/" data-count="vertical" rel="nofollow" target="_blank"><span class="vhidden">Share on Twitter</span></a>
+                        </li>
+                        <li>
+                            <a href="https://plus.google.com/share?url=http://clubdesign.github.io/floatlabels.js/" class="socialite googleplus-one" data-size="tall" data-href="http://clubdesign.github.io/floatlabels.js/" rel="nofollow" target="_blank"><span class="vhidden">Share on Google+</span></a>
+                        </li>
+                        <li>
+                            <a href="http://www.facebook.com/sharer.php?u=http://clubdesign.github.io/floatlabels.js/&t=floatlabels.js" class="socialite facebook-like" data-href="http://clubdesign.github.io/floatlabels.js/" data-send="false" data-layout="box_count" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden">Share on Facebook</span></a>
+                        </li>
+                        <li>
+                            <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://clubdesign.github.io/floatlabels.js/&title=Socialite.js" class="socialite linkedin-share" data-url="http://clubdesign.github.io/floatlabels.js/" data-counter="top" rel="nofollow" target="_blank"><span class="vhidden">Share on LinkedIn</span></a>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <h3>Installation & Dependencies</h3><br style="clear:both">
+
+                <p>
+                    Include the latest release of <strong>jQuery</strong>. The Google AJAX Libraries API can be used for this but you could also host the library yourself.<br>
+                    Download floatlabels.js from Github, upload the file to your server & include it in your code AFTER jQuery.<br><br>
+                    Currently floatlabels.js is dependant from jQuery <strong>1.8+</strong>. Lower Versions have not been tested.
+                </p>
+
+<pre><code class="language-markup">&lt;head&gt;
+..
+&lt;script src=&quot;jquery.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;floatlabels.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+..
+&lt;/head&gt;</code></pre>
+
+            <h3>Initialization</h3><br style="clear:both">
+
+            <p>
+                Basically floatlabel is initialized with on simple call.
+            </p>
+
+<pre><code class="language-markup">&lt;head&gt;
+..
+&lt;script src=&quot;jquery.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;floatlabels.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+..
+&lt;script&gt;
+    $('input.floatlabel').floatlabel();
+&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div&gt;
+        &lt;input type=&quot;text&quot; id=&quot;test-input&quot; placeholder=&quot;This is the placeholder&quot; class=&quot;floatlabel&quot;&gt;
+    &lt;/div&gt;
+&lt;/body&gt;</code></pre>
+
+            <p>
+                The script cycles through all your selected input fields and converts them to inputs with floated labels. <strong>Done</strong>.
+            </p>
+
+            <h3>Customization</h3><br style="clear:both">
+
+            <p>
+                The script offers some customization methods for your labels.<br><br>
+
+                <h4>Inline Data Attributes:</h4>
+
+                <div class="block">
+                    <p>
+                        <strong>data-label</strong><br>
+                        Add this to your input field if you want the floating label to be different from your placeholder value.
+                    </p>
+                    <p>
+                        <strong>data-class</strong><br>
+                        Add the classes you want to add to this generated label in here. You can add multiple classes by seperating with spaces.
+                    </p>
+                </div>
+            </p>
+
+            <h4>Javascript Options</h4>
+            
+            <div class="block">
+                <p>
+                    <strong>slideInput</strong>             <em>Default: true</em><br>
+                    <span>
+                        If true the input field will slide down (height) to fit the floating label.
+                    </span>
+                </p>
+                <p>
+                    <strong>labelStartTop</strong>          <em>Default: '20px'</em><br>
+                    <span>
+                        How many pixel the label should travel when enabled. This sets the starting point of the animation from the top of the input field. Play around with it.
+                    </span>
+                </p>
+                <p>
+                    <strong>labelEndTop</strong>            <em>Default: '10px'</em><br>
+                    <span>
+                        Where the Label should stop animating in px from the top of the input field.
+                    </span>
+                </p>
+                <p>
+                    <strong>transitionDuration</strong>     <em>Default: 0.3</em><br>
+                    <span>
+                        Label Transition time in seconds.
+                    </span>
+                </p>
+                <p>
+                    <strong>transitionEasing</strong>       <em>Default: 'ease-in-out'</em><br>
+                    <span>
+                        Easing function to use. <a href="http://easings.net/" target="_blank">Here are some examples of other easing functions.</a>
+                    </span>
+                </p>
+                <p>
+                    <strong>labelClass</strong>             <em>Default: ''</em><br>
+                    <span>
+                        Another way to add classes to the label element.
+                    </span>
+                </p>
+                <p>
+                    <strong>typeMatches</strong>            <em>Default: /text|password|email|number|search|url/</em><br>
+                    <span>
+                        This Regex Expression is triggered at the initializiation of the script. It checks the type="text" if the element the plugin is triggered on is valid. Some advanced users might want to expand this to the new HTML5 textfield types.
+                    </span>
+                </p>
+
+            </div>
+
+            <p>
+                <h4>Configuration</h4>
+            </p>
+
+<pre><code class="language-markup">..
+&lt;script&gt;
+    $('input.floatlabel').floatlabel({
+        // Add Configuration Object here
+    });
+&lt;/script&gt;
+..</code></pre>
+
+            <h3>Examples</h3><br style="clear:both">
+
+            <p>
+                Here are some examples on CodePen. Just view the source and play with it.
+            </p>
+            
+            <p data-height="1000" data-theme-id="0" data-slug-hash="ptxhG" data-user="clubdesign" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/clubdesign/pen/ptxhG'>ptxhG</a> by Marcus Pohorely (<a href='http://codepen.io/clubdesign'>@clubdesign</a>) on <a href='http://codepen.io'>CodePen</a></p>
+<script async src="http://codepen.io/assets/embed/ei.js"></script>
+
+            <div id="social-buttons" class="clearfix">
+                    
+                    <ul class="social-buttons clearfix">
+                        <li>
+                            <a href="http://twitter.com/share" class="socialite twitter-share" data-text="floatlabels.js" data-url="http://clubdesign.github.io/floatlabels.js/" data-count="vertical" rel="nofollow" target="_blank"><span class="vhidden">Share on Twitter</span></a>
+                        </li>
+                        <li>
+                            <a href="https://plus.google.com/share?url=http://clubdesign.github.io/floatlabels.js/" class="socialite googleplus-one" data-size="tall" data-href="http://clubdesign.github.io/floatlabels.js/" rel="nofollow" target="_blank"><span class="vhidden">Share on Google+</span></a>
+                        </li>
+                        <li>
+                            <a href="http://www.facebook.com/sharer.php?u=http://clubdesign.github.io/floatlabels.js/&t=floatlabels.js" class="socialite facebook-like" data-href="http://clubdesign.github.io/floatlabels.js/" data-send="false" data-layout="box_count" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden">Share on Facebook</span></a>
+                        </li>
+                        <li>
+                            <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://clubdesign.github.io/floatlabels.js/&title=Socialite.js" class="socialite linkedin-share" data-url="http://clubdesign.github.io/floatlabels.js/" data-counter="top" rel="nofollow" target="_blank"><span class="vhidden">Share on LinkedIn</span></a>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div style="text-align:center">
+                    Built 2013 by <a href="http://www.clubdesign.at">ClubDesign - Marcus Pohorely</a><br>
+                    Follow me on Twitter: <a href="">@clubdesign_at</a><br>
+                    Be a Fan of ClubDesign on <a href="https://www.facebook.com/clubdesign.mp">Facebook</a>
+                </div>
+
+            </section>
+
+        </div>
+
+        <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-34149245-3', 'clubdesign.github.io');
+  ga('send', 'pageview');
+
+</script>
+  
+  </body>
+</html>

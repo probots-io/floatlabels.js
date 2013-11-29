@@ -33,48 +33,52 @@
 
             init: function () {
 
-                var self = this;
+                var self          = this,
+                    settings      = this.settings,
+                    transDuration = settings.transitionDuration,
+                    transEasing   = settings.transitionEasing,
+                    thisElement   = this.$element;
                 
                 var animationCss = {
-                    '-webkit-transition'            : 'all ' + this.settings.transitionDuration + 's ' + this.settings.transitionEasing,
-                    '-moz-transition'               : 'all ' + this.settings.transitionDuration + 's ' + this.settings.transitionEasing,
-                    '-o-transition'                 : 'all ' + this.settings.transitionDuration + 's ' + this.settings.transitionEasing,
-                    '-ms-transition'                : 'all ' + this.settings.transitionDuration + 's ' + this.settings.transitionEasing,
-                    'transition'                    : 'all ' + this.settings.transitionDuration + 's ' + this.settings.transitionEasing,
+                    '-webkit-transition'            : 'all ' + transDuration + 's ' + transEasing,
+                    '-moz-transition'               : 'all ' + transDuration + 's ' + transEasing,
+                    '-o-transition'                 : 'all ' + transDuration + 's ' + transEasing,
+                    '-ms-transition'                : 'all ' + transDuration + 's ' + transEasing,
+                    'transition'                    : 'all ' + transDuration + 's ' + transEasing
                 };
 
-                if( this.$element.prop('tagName').toUpperCase() !== 'INPUT' ) { return; }
+                if( thisElement.prop('tagName').toUpperCase() !== 'INPUT' ) { return; }
 
-                if( !this.settings.typeMatches.test( this.$element.attr('type') ) ) { return; }
+                if( !settings.typeMatches.test( thisElement.attr('type') ) ) { return; }
 
                 
 
-                var elementID           = this.$element.attr('id');
+                var elementID = thisElement.attr('id');
 
                 if( !elementID ) {
                     elementID = Math.floor( Math.random() * 100 ) + 1;
-                    this.$element.attr('id', elementID);
+                    thisElement.attr('id', elementID);
                 }
 
-                var placeholderText     = this.$element.attr('placeholder');
-                var floatingText        = this.$element.data('label');
-                var extraClasses        = this.$element.data('class');
+                var placeholderText     = thisElement.attr('placeholder');
+                var floatingText        = thisElement.data('label');
+                var extraClasses        = thisElement.data('class');
 
                 if( !extraClasses ) { extraClasses = ''; }
 
                 if( !placeholderText || placeholderText === '' ) { placeholderText = "You forgot to add placeholder attribute!"; }
                 if( !floatingText || floatingText === '' ) { floatingText = placeholderText; }
 
-                this.inputPaddingTop    = parseFloat( this.$element.css('padding-top') ) + 10;
+                this.inputPaddingTop    = parseFloat( thisElement.css('padding-top') ) + 10;
 
-                this.$element.wrap('<div class="floatlabel-wrapper" style="position:relative"></div>');
-                this.$element.before('<label for="' + elementID + '" class="label-floatlabel ' + this.settings.labelClass + ' ' + extraClasses + '">' + floatingText + '</label>');
+                thisElement.wrap('<div class="floatlabel-wrapper" style="position:relative"></div>');
+                thisElement.before('<label for="' + elementID + '" class="label-floatlabel ' + settings.labelClass + ' ' + extraClasses + '">' + floatingText + '</label>');
 
-                this.$label = this.$element.prev('label');
+                this.$label = thisElement.prev('label');
                 this.$label.css({
                     'position'                      : 'absolute',
-                    'top'                           : this.settings.labelStartTop,
-                    'left'                          : this.$element.css('padding-left'),
+                    'top'                           : settings.labelStartTop,
+                    'left'                          : thisElement.css('padding-left'),
                     'display'                       : 'none',
                     '-moz-opacity'                  : '0',
                     '-khtml-opacity'                : '0',
@@ -82,15 +86,15 @@
                     'opacity'                       : '0'
                 });
 
-                if( !this.settings.slideInput ) {
+                if( !settings.slideInput ) {
                     
-                    this.$element.css({
+                    thisElement.css({
                         'padding-top'                   : this.inputPaddingTop,
                     });
 
                 }
 
-                this.$element.on('keyup blur change', function( e ) {
+                thisElement.on('keyup blur change', function( e ) {
                     self.checkValue( e );
                 });
 
@@ -115,19 +119,19 @@
                 
                 }
 
-                var currentFlout    = this.$element.data('flout');
-                
+                var thisElement  = this.$element, 
+                    currentFlout = thisElement.data('flout');
 
-                if( this.$element.val() !== "" ) { this.$element.data('flout', '1'); }
-                if( this.$element.val() === "" ) { this.$element.data('flout', '0'); }
+                if( thisElement.val() !== "" ) { thisElement.data('flout', '1'); }
+                if( thisElement.val() === "" ) { thisElement.data('flout', '0'); }
 
 
 
-                if( this.$element.data('flout') === '1' && currentFlout !== '1' ) {
+                if( thisElement.data('flout') === '1' && currentFlout !== '1' ) {
                     this.showLabel();
                 }
 
-                if( this.$element.data('flout') === '0' && currentFlout !== '0' ) {
+                if( thisElement.data('flout') === '0' && currentFlout !== '0' ) {
                     this.hideLabel();
                 }
 
