@@ -60,8 +60,10 @@
                     thisElement.attr('id', elementID);
                 }
 
+                this.$label = thisElement.prev('label');
+
                 var placeholderText     = thisElement.attr('placeholder');
-                var floatingText        = thisElement.data('label');
+                var floatingText        = this.$label.text();
                 var extraClasses        = thisElement.data('class');
 
                 if( !extraClasses ) { extraClasses = ''; }
@@ -71,10 +73,9 @@
 
                 this.inputPaddingTop    = parseFloat( thisElement.css('padding-top') ) + 10;
 
-                thisElement.wrap('<div class="floatlabel-wrapper" style="position:relative"></div>');
-                thisElement.before('<label for="' + elementID + '" class="label-floatlabel ' + settings.labelClass + ' ' + extraClasses + '">' + floatingText + '</label>');
+                (thisElement.add(this.$label)).wrapAll('<div class="floatlabel-wrapper" style="position:relative"></div>');
+                this.$label.addClass('label-floatlabel ' + settings.labelClass + ' ' + extraClasses)
 
-                this.$label = thisElement.prev('label');
                 this.$label.css({
                     'position'                      : 'absolute',
                     'top'                           : settings.labelStartTop,
