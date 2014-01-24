@@ -14,6 +14,7 @@
                 slideInput                      : true,
                 labelStartTop                   : '20px',
                 labelEndTop                     : '10px',
+                paddingOffset                   : '10px',
                 transitionDuration              : 0.3,
                 transitionEasing                : 'ease-in-out',
                 labelClass                      : '',
@@ -69,7 +70,7 @@
                 if( !placeholderText || placeholderText === '' ) { placeholderText = "You forgot to add placeholder attribute!"; }
                 if( !floatingText || floatingText === '' ) { floatingText = placeholderText; }
 
-                this.inputPaddingTop    = parseFloat( thisElement.css('padding-top') ) + 10;
+                this.inputPaddingTop    = parseFloat( thisElement.css('padding-top') ) + parseFloat(settings.paddingOffset);
 
                 thisElement.wrap('<div class="floatlabel-wrapper" style="position:relative"></div>');
                 thisElement.before('<label for="' + elementID + '" class="label-floatlabel ' + settings.labelClass + ' ' + extraClasses + '">' + floatingText + '</label>');
@@ -89,7 +90,7 @@
                 if( !settings.slideInput ) {
                     
                     thisElement.css({
-                        'padding-top'                   : this.inputPaddingTop,
+                        'padding-top'                   : this.inputPaddingTop
                     });
 
                 }
@@ -181,7 +182,7 @@
                 if( self.settings.slideInput ) {
 
                     self.$element.css({
-                        'padding-top'               : parseFloat( self.inputPaddingTop ) - 10
+                        'padding-top'               : parseFloat( self.inputPaddingTop ) - parseFloat(this.settings.paddingOffset)
                     });
 
                 }
