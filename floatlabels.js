@@ -162,7 +162,7 @@
                         });
 
                     }
-                    self.$element.addClass('float-label-active');
+                    self.$element.addClass('active-floatlabel');
                 }, 50);
 
             },
@@ -186,7 +186,7 @@
                     });
 
                 }
-                self.$element.removeClass('float-label-active');
+                self.$element.removeClass('active-floatlabel');
 
                 window.setTimeout(function() {
                     self.$label.css({
