@@ -5,6 +5,7 @@
   "homepage": "https://github.com/clubdesign/floatlabels.js",
   "description": "Follows the famous Float Label Pattern. Built on jQuery.",
   "keywords": ["floatlabel", "float", "label"],
+  "license": "MIT",
   "dependencies": {
      "jQuery": "latest"
   },
