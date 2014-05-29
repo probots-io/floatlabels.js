@@ -27,7 +27,7 @@
           </div>
           <div class="form-group col-xs-6">
             <select class="form-control floatlabel" placeholder="Specific location (optional)">
-              <option></option><option>Ontario</option><option>Quebec</option><option>Other</option>
+              <option></option><option selected>Ontario</option><option>Quebec</option><option>Other</option>
             </select>
           </div>
         </div>
@@ -43,6 +43,7 @@
 
 <script type="text/javascript">
 $(document).ready(function () {
-  $('.floatlabel').floatlabel({ labelStartTop: '-5px' });
+  //$('.floatlabel').floatlabel({ labelStartTop: '-5px', paddingOffset : '3px', backgroundColor: 'white' });
+  $('.floatlabel').floatlabel();
 });
 </script>

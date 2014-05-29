@@ -13,10 +13,11 @@
                 slideInput                      : true,
                 labelStartTop                   : '0px',
                 labelEndTop                     : '0px',
-                paddingOffset                   : '3px',
+                paddingOffset                   : '12px',
                 transitionDuration              : 0.1,
                 transitionEasing                : 'ease-in-out',
                 labelClass                      : '',
+                backgroundColor                 : 'transparent',
                 typeMatches                     : /text|password|email|number|search|url/
             };
         function Plugin ( element, options ) {
@@ -67,7 +68,7 @@
                         'font-size'                     : '11px',
                         'font-weight'                   : 'bold',
                         'color'                         : '#838780',
-                        'background-color'              : 'white',
+                        'background-color'              : settings.backgroundColor,
                         'padding-left'                  : '5px',
                         'padding-right'                 : '5px',
                         'display'                       : 'block',
@@ -84,7 +85,7 @@
                         'font-size'                     : '11px',
                         'font-weight'                   : 'bold',
                         'color'                         : '#838780',
-                        'background-color'              : 'white',
+                        'background-color'              : settings.backgroundColor,
                         'padding-left'                  : '5px',
                         'padding-right'                 : '5px',
                         'display'                       : 'none',
@@ -138,7 +139,11 @@
                         'opacity'                       : '1'
                     });
                     if( self.settings.slideInput ) {
-                        self.$element.css({ 'padding-top' : self.inputPaddingTop });
+                        if (self.$element.prop('tagName').toUpperCase() !== 'SELECT') { 
+                            self.$element.css({ 'padding-top' : self.inputPaddingTop });
+                        } else {
+                            self.$element.css({ 'padding-top' : self.inputPaddingTop - parseFloat(self.settings.labelStartTop) - 6 });
+                        }
                     }
                     self.$element.addClass('active-floatlabel');
                 }, 50);
