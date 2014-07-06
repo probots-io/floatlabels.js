@@ -17,7 +17,7 @@
                 transitionDuration              : 0.1,
                 transitionEasing                : 'ease-in-out',
                 labelClass                      : '',
-                typeMatches                     : /text|password|email|number|search|url/
+                typeMatches                     : /text|password|email|number|search|url|tel/
             };
         function Plugin ( element, options ) {
             this.$element       = $(element);
