@@ -18,7 +18,9 @@
                 transitionEasing                : 'ease-in-out',
                 labelClass                      : '',
                 backgroundColor                 : 'transparent',
-                typeMatches                     : /text|password|email|number|search|url/
+                typeMatches                     : /text|password|email|number|search|url|tel/,
+                focusColor                      : '#838780',
+                blurColor                       : '#2996cc'
             };
         function Plugin ( element, options ) {
             this.$element       = $(element);
@@ -59,7 +61,6 @@
                 thisElement.wrap('<div class="floatlabel-wrapper" style="position:relative"></div>');
                 thisElement.before('<label for="' + elementID + '" class="label-floatlabel ' + settings.labelClass + ' ' + extraClasses + '">' + floatingText + '</label>');
                 this.$label = thisElement.prev('label');
-                //this.$label.css({ 'top' : settings.labelStartTop });
                 if (thisElement.prop('tagName').toUpperCase() == 'SELECT') { 
                     this.$label.css({ 
                         'position'                      : 'absolute',
@@ -67,15 +68,12 @@
                         'left'                          : '8px', //thisElement.css('padding-left'),
                         'font-size'                     : '11px',
                         'font-weight'                   : 'bold',
-                        'color'                         : '#838780',
-                        'background-color'              : settings.backgroundColor,
-                        'padding-left'                  : '5px',
-                        'padding-right'                 : '5px',
-                        'display'                       : 'block',
+                        'color'                         : self.settings.blurColor,
                         '-moz-opacity'                  : '1',
                         '-khtml-opacity'                : '1',
                         '-webkit-opacity'               : '1',
-                        'opacity'                       : '1'
+                        'opacity'                       : '1',
+                        'display'                       : 'block'
                     });                
                 } else {
                     this.$label.css({
@@ -84,15 +82,12 @@
                         'left'                          : '8px', //thisElement.css('padding-left'),
                         'font-size'                     : '11px',
                         'font-weight'                   : 'bold',
-                        'color'                         : '#838780',
-                        'background-color'              : settings.backgroundColor,
-                        'padding-left'                  : '5px',
-                        'padding-right'                 : '5px',
-                        'display'                       : 'none',
+                        'color'                         : self.settings.blurColor,
                         '-moz-opacity'                  : '0',
                         '-khtml-opacity'                : '0',
                         '-webkit-opacity'               : '0',
                         'opacity'                       : '0',
+                        'display'                       : 'none',
                     });
                 }
                 if( !settings.slideInput ) {                    
@@ -101,8 +96,8 @@
                 thisElement.on('keyup blur change', function( e ) {
                     self.checkValue( e );
                 });
-                thisElement.on('blur', function() { thisElement.prev('label').css({ 'color' : '#838780' }); });
-                thisElement.on('focus', function() { thisElement.prev('label').css({ 'color' : '#2996cc' }); });
+                thisElement.on('blur', function() { thisElement.prev('label').css({ 'color' : self.settings.blurColor }); });
+                thisElement.on('focus', function() { thisElement.prev('label').css({ 'color' : self.settings.focusColor }); });
                 window.setTimeout( function() {
                     self.$label.css( animationCss );
                     self.$element.css( animationCss );
