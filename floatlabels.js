@@ -87,7 +87,7 @@
                         '-khtml-opacity'                : '0',
                         '-webkit-opacity'               : '0',
                         'opacity'                       : '0',
-                        'display'                       : 'none',
+                        'display'                       : 'none'
                     });
                 }
                 if( !settings.slideInput ) {                    
