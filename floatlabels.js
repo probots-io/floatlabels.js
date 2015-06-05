@@ -40,8 +40,10 @@
                     '-ms-transition'                : 'all ' + transDuration + 's ' + transEasing,
                     'transition'                    : 'all ' + transDuration + 's ' + transEasing
                 };
-                if( thisElement.prop('tagName').toUpperCase() !== 'INPUT' ) { return; }
-                if( !settings.typeMatches.test( thisElement.attr('type') ) ) { return; }
+                if( thisElement.prop('tagName').toUpperCase() != 'INPUT' &&
+                    thisElement.prop('tagName').toUpperCase() != 'TEXTAREA') { return; }
+                if( thisElement.prop('tagName').toUpperCase() === 'INPUT' &&
+                    !settings.typeMatches.test( thisElement.attr('type') ) ) { return; }
                 var elementID = thisElement.attr('id');
                 if( !elementID ) {
                     elementID = Math.floor( Math.random() * 100 ) + 1;
