@@ -7,7 +7,7 @@
   "keywords": ["floatlabel", "float", "label"],
   "license": "MIT",
   "dependencies": {
-     "jQuery": "latest"
+     "jquery": "latest"
   },
   "development": {},
   "ignore": [
