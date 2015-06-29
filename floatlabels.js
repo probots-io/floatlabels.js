@@ -75,7 +75,7 @@
                 if( !settings.slideInput ) {                    
                     thisElement.css({ 'padding-top' : this.inputPaddingTop });
                 }
-                thisElement.on('keyup blur change', function( e ) {
+                thisElement.on('keyup blur change input', function( e ) {
                     self.checkValue( e );
                 });
                 thisElement.on('blur', function() { thisElement.prev('label').css({ 'color' : self.settings.blurColor }); });
