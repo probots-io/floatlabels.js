@@ -70,7 +70,8 @@
                     'opacity'                       : '0',
                     'font-size'                     : '11px',
                     'font-weight'                   : 'bold',
-                    'color'                         : self.settings.blurColor
+                    'color'                         : self.settings.blurColor,
+                    'z-index'                       : 9999
                 });
                 if( !settings.slideInput ) {                    
                     thisElement.css({ 'padding-top' : this.inputPaddingTop });
