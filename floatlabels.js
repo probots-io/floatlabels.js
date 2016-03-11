@@ -17,6 +17,7 @@
                 transitionDuration              : 0.1,
                 transitionEasing                : 'ease-in-out',
                 labelClass                      : '',
+                backgroundColor                 : 'transparent',
                 typeMatches                     : /text|password|email|number|search|url|tel/,
                 focusColor                      : '#838780',
                 blurColor                       : '#2996cc'
@@ -32,7 +33,7 @@
                     settings      = this.settings,
                     transDuration = settings.transitionDuration,
                     transEasing   = settings.transitionEasing,
-                    thisElement   = this.$element;              
+                    thisElement   = this.$element;
                 var animationCss = {
                     '-webkit-transition'            : 'all ' + transDuration + 's ' + transEasing,
                     '-moz-transition'               : 'all ' + transDuration + 's ' + transEasing,
@@ -40,8 +41,9 @@
                     '-ms-transition'                : 'all ' + transDuration + 's ' + transEasing,
                     'transition'                    : 'all ' + transDuration + 's ' + transEasing
                 };
-                if( thisElement.prop('tagName').toUpperCase() != 'INPUT' &&
-                    thisElement.prop('tagName').toUpperCase() != 'TEXTAREA') { return; }
+                if( thisElement.prop('tagName').toUpperCase() !== 'INPUT' &&
+                    thisElement.prop('tagName').toUpperCase() !== 'TEXTAREA' &&
+                    thisElement.prop('tagName').toUpperCase() !== 'SELECT') { return; }
                 if( thisElement.prop('tagName').toUpperCase() === 'INPUT' &&
                     !settings.typeMatches.test( thisElement.attr('type') ) ) { return; }
                 var elementID = thisElement.attr('id');
@@ -59,20 +61,42 @@
                 thisElement.wrap('<div class="floatlabel-wrapper" style="position:relative"></div>');
                 thisElement.before('<label for="' + elementID + '" class="label-floatlabel ' + settings.labelClass + ' ' + extraClasses + '">' + floatingText + '</label>');
                 this.$label = thisElement.prev('label');
-                this.$label.css({
-                    'position'                      : 'absolute',
-                    'top'                           : settings.labelStartTop,
-                    'left'                          : '8px', //thisElement.css('padding-left'),
-                    'display'                       : 'none',
-                    '-moz-opacity'                  : '0',
-                    '-khtml-opacity'                : '0',
-                    '-webkit-opacity'               : '0',
-                    'opacity'                       : '0',
-                    'font-size'                     : '11px',
-                    'font-weight'                   : 'bold',
-                    'color'                         : self.settings.blurColor
-                });
-                if( !settings.slideInput ) {                    
+                if (thisElement.prop('tagName').toUpperCase() == 'SELECT') {
+                    this.$label.css({
+                        'position'                      : 'absolute',
+                        'top'                           : settings.labelStartTop,
+                        'left'                          : '8px', //thisElement.css('padding-left'),
+                        'font-size'                     : '11px',
+                        'font-weight'                   : 'bold',
+                        'color'                         : '#838780',
+                        'background-color'              : settings.backgroundColor,
+                        'padding-left'                  : '5px',
+                        'padding-right'                 : '5px',
+                        'display'                       : 'block',
+                        '-moz-opacity'                  : '1',
+                        '-khtml-opacity'                : '1',
+                        '-webkit-opacity'               : '1',
+                        'opacity'                       : '1'
+                    });
+                } else {
+                    this.$label.css({
+                        'position'                      : 'absolute',
+                        'top'                           : settings.labelStartTop,
+                        'left'                          : '8px', //thisElement.css('padding-left'),
+                        'font-size'                     : '11px',
+                        'font-weight'                   : 'bold',
+                        'color'                         : '#838780',
+                        'background-color'              : settings.backgroundColor,
+                        'padding-left'                  : '5px',
+                        'padding-right'                 : '5px',
+                        'display'                       : 'none',
+                        '-moz-opacity'                  : '0',
+                        '-khtml-opacity'                : '0',
+                        '-webkit-opacity'               : '0',
+                        'opacity'                       : '0'
+                    });
+                }
+                if( !settings.slideInput ) {
                     thisElement.css({ 'padding-top' : this.inputPaddingTop });
                 }
                 thisElement.on('keyup blur change', function( e ) {
@@ -89,17 +113,19 @@
             checkValue: function( e ) {
                 if( e ) {
                     var keyCode         = e.keyCode || e.which;
-                    if( keyCode === 9 ) { return; }                
+                    if( keyCode === 9 ) { return; }
                 }
-                var thisElement  = this.$element, 
+                var thisElement  = this.$element,
                     currentFlout = thisElement.data('flout');
                 if( thisElement.val() !== "" ) { thisElement.data('flout', '1'); }
                 if( thisElement.val() === "" ) { thisElement.data('flout', '0'); }
                 if( thisElement.data('flout') === '1' && currentFlout !== '1' ) {
                     this.showLabel();
                 }
-                if( thisElement.data('flout') === '0' && currentFlout !== '0' ) {
-                    this.hideLabel();
+                if (thisElement.prop('tagName').toUpperCase() !== 'SELECT') {
+                    if( thisElement.data('flout') === '0' && currentFlout !== '0' ) {
+                        this.hideLabel();
+                    }
                 }
             },
             showLabel: function() {
@@ -107,14 +133,18 @@
                 self.$label.css({ 'display' : 'block' });
                 window.setTimeout(function() {
                     self.$label.css({
-                        'top'                           : self.settings.labelEndTop,
+                        'top'                           : self.settings.labelStartTop,
                         '-moz-opacity'                  : '1',
                         '-khtml-opacity'                : '1',
                         '-webkit-opacity'               : '1',
                         'opacity'                       : '1'
                     });
                     if( self.settings.slideInput ) {
-                        self.$element.css({ 'padding-top' : self.inputPaddingTop });
+                        if (self.$element.prop('tagName').toUpperCase() !== 'SELECT') {
+                            self.$element.css({ 'padding-top' : self.inputPaddingTop });
+                        } else {
+                            self.$element.css({ 'padding-top' : self.inputPaddingTop - parseFloat(self.settings.labelStartTop) - 6 });
+                        }
                     }
                     self.$element.addClass('active-floatlabel');
                 }, 50);
