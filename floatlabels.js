@@ -104,7 +104,6 @@
             },
             showLabel: function() {
                 var self = this;
-                self.$label.css({ 'display' : 'block' });
                 window.setTimeout(function() {
                     self.$label.css({
                         'top'                           : self.settings.labelEndTop,
@@ -117,6 +116,7 @@
                         self.$element.css({ 'padding-top' : self.inputPaddingTop });
                     }
                     self.$element.addClass('active-floatlabel');
+                    self.$label.css({ 'display' : 'block' });
                 }, 50);
             },
             hideLabel: function() {
