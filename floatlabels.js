@@ -18,8 +18,8 @@
                 transitionEasing                : 'ease-in-out',
                 labelClass                      : '',
                 typeMatches                     : /text|password|email|number|search|url|tel/,
-                focusColor                      : '#838780',
-                blurColor                       : '#2996cc'
+                focusColor                      : '#8F6593',
+                blurColor                       : '#838780'
             };
         function Plugin ( element, options ) {
             this.$element       = $(element);
