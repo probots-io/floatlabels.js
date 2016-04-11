@@ -80,10 +80,8 @@
                 });
                 thisElement.on('blur', function() { thisElement.prev('label').css({ 'color' : self.settings.blurColor }); });
                 thisElement.on('focus', function() { thisElement.prev('label').css({ 'color' : self.settings.focusColor }); });
-                window.setTimeout( function() {
-                    self.$label.css( animationCss );
-                    self.$element.css( animationCss );
-                }, 100);
+                self.$label.css( animationCss );
+                self.$element.css( animationCss );
                 this.checkValue();
             },
             checkValue: function( e ) {
@@ -104,20 +102,18 @@
             },
             showLabel: function() {
                 var self = this;
-                window.setTimeout(function() {
-                    self.$label.css({
-                        'top'                           : self.settings.labelEndTop,
-                        '-moz-opacity'                  : '1',
-                        '-khtml-opacity'                : '1',
-                        '-webkit-opacity'               : '1',
-                        'opacity'                       : '1'
-                    });
-                    if( self.settings.slideInput ) {
-                        self.$element.css({ 'padding-top' : self.inputPaddingTop });
-                    }
-                    self.$element.addClass('active-floatlabel');
-                    self.$label.css({ 'display' : 'block' });
-                }, 50);
+                self.$label.css({
+                    'top'                           : self.settings.labelEndTop,
+                    '-moz-opacity'                  : '1',
+                    '-khtml-opacity'                : '1',
+                    '-webkit-opacity'               : '1',
+                    'opacity'                       : '1'
+                });
+                if( self.settings.slideInput ) {
+                    self.$element.css({ 'padding-top' : self.inputPaddingTop });
+                }
+                self.$element.addClass('active-floatlabel');
+                self.$label.css({ 'display' : 'block' });
             },
             hideLabel: function() {
                 var self = this;
@@ -132,9 +128,7 @@
                     self.$element.css({ 'padding-top' : parseFloat( self.inputPaddingTop ) - parseFloat(this.settings.paddingOffset) });
                 }
                 self.$element.removeClass('active-floatlabel');
-                window.setTimeout(function() {
-                    self.$label.css({ 'display' : 'none' });
-                }, self.settings.transitionDuration * 1000);
+                self.$label.css({ 'display' : 'none' });
             }
         };
         $.fn[ pluginName ] = function ( options ) {
