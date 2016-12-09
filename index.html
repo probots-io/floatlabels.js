@@ -52,7 +52,8 @@
                             Now clear the field again.
                         </div>
                         
-                        <input type="text" id="demo-floatlabel" placeholder="Start typing..." data-label="This is a floated Label. It stays there until the field is cleared.">
+                        <label for="demo-floatlabel">This is a floated Label. It stays there until the field is cleared.</label>
+                        <input type="text" id="demo-floatlabel" placeholder="Start typing...">
 
                     </div>
                 </div>
@@ -170,13 +171,24 @@
                 <h4>Inline Data Attributes:</h4>
 
                 <div class="block">
-                    <p>
+                    <!-- <p>
                         <strong>data-label</strong><br>
                         Add this to your input field if you want the floating label to be different from your placeholder value.
-                    </p>
+                    </p> -->
                     <p>
                         <strong>data-class</strong><br>
                         Add the classes you want to add to this generated label in here. You can add multiple classes by seperating with spaces.
+                    </p>
+                </div>
+            </p>
+
+            <p>
+                <h4>Additional Labels:</h4>
+
+                <div class="block">
+                    <p>
+                        <strong>label tags</strong><br>
+                        Add a <code class="language-markup">&lt;label for=&quot;input_id&quot;&gt;</code> before your <code class="language-markup">&lt;input&gt;</code> tag if you want the floating label to be different from your placeholder value.
                     </p>
                 </div>
             </p>
